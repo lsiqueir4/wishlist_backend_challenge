@@ -22,7 +22,6 @@ Para essa pequena API foram criados os seguintes endpoints:
 |/usuarios/<int:user_id>     | Retorna o ID e login de um usuário  | GET    |               |
 |/usuarios/<int:user_id>     | Exclui o usuário do ID informado  | DELETE    |               |
 |/cadastro/     | cadastra um novo usuário        | POST    |  {'login': 'login', 'senha':'senha'}             |
-|/login/     | Autentica o usuário no sistema        | 
-POST   | {'login': 'login', senha':'senha'}              |
+|/login/     | Autentica o usuário no sistema        | POST   | {'login': 'login', senha':'senha'}              |
 |/logout/     | Realiza o Logout do usuário         | POST    |               |
 

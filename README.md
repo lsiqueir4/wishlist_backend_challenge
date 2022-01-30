@@ -16,9 +16,7 @@ Para essa pequena API foram criados os seguintes endpoints:
 |/produto/<int:product_id>         | Retorna o produto conforme o ID informado  | GET     |           |
 |/produto/<int:product_id>         | Altera o produto do ID informado, é necessário passar apenas o valor a ser alterado  | PUT     |  {"product": "product","description": description", "link": "link", "photo": "photo" }         |
 |/produto/<int:product_id>         | Deleta um produto pelo ID informado  | DELETE     |          |
-|/produto/    | Adiciona um novo produto, por padrão a variavel Bought é falsa         | POST    |  
-{"product": "product", "description": "description", "link": "link", "photo": "photo" }     |
-
+|/produto/    | Adiciona um novo produto, por padrão a variavel Bought é falsa         | POST    |  {"product": "product", "description": "description", "link": "link", "photo": "photo" }     |
 |/produto/random/    | Retorna um produto aleatório         | GET    |         |
 |/comprei/<int:product_id>     | Altera a variável "bought" para True, mostrando que o produto foi comprado        | PUT|               |
 |/usuarios/<int:user_id>     | Retorna o ID e login de um usuário  | GET    |               |

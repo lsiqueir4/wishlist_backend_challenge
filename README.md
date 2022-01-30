@@ -1,4 +1,4 @@
-# Desafio Company Hero
+# Desafio API Wishlist
 
 ## Descrição:
 

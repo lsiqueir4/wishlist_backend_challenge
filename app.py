@@ -8,7 +8,7 @@ from sql_alchemy import banco
 
 #Configurações de conexao com banco de dados e lib de autenticacao
 db_connect_local = "postgresql://postgres:1234@localhost:5432/postgres"
-db_connect = "postgres://xzuzgkzcnrklgs:671acf3d1e4dafd5373b91f73fa5d3e3ae9e4034b533c34c4de0ee482950ff0f@ec2-54-157-15-228.compute-1.amazonaws.com:5432/dbeam0g0okjbqh"
+db_connect = "postgresql://xzuzgkzcnrklgs:671acf3d1e4dafd5373b91f73fa5d3e3ae9e4034b533c34c4de0ee482950ff0f@ec2-54-157-15-228.compute-1.amazonaws.com:5432/dbeam0g0okjbqh"
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_connect

@@ -58,5 +58,7 @@ Para deslogar, é necessário acessar o link abaixo, assim seu token se tornará
 
 https://restapi-wishlist.herokuapp.com/login/
 
-Obs.: Para possíveis dúvidas, recomendo acessar a documentação presente na raiz do projeto.
+Obs.: Quando realizei os testes, o sistema me deslogou algumas vezes depois de horas sem acessar os endpoints, retornando a mensagem de Internal Server Error, caso receba a mesma mensagem, recomendo tentar realizar novamente o login.
+
+Para possíveis dúvidas, recomendo acessar a documentação presente na raiz do projeto.
 

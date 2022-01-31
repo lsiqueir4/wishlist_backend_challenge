@@ -1,5 +1,6 @@
 from sql_alchemy import banco
 
+#configuração da tabela products no DB
 class ProductModel(banco.Model):
     __tablename__ = 'products'
 
@@ -16,6 +17,7 @@ class ProductModel(banco.Model):
         self.link = link
         self.photo = photo
 
+    #Metodo para converter os dados para Json
     def json(self):
         return {
             'product_id': self.product_id,
@@ -26,6 +28,7 @@ class ProductModel(banco.Model):
             'bought': self.bought
         }
 
+    #Metodo para buscar pelo ID
     @classmethod
     def find_product(cls, product_id):
         hotel = cls.query.filter_by(product_id=product_id).first()
@@ -33,10 +36,12 @@ class ProductModel(banco.Model):
             return hotel
         return None
 
+    #Metodo para salvar no banco
     def save_product(self):
         banco.session.add(self)
         banco.session.commit()
 
+    #Metodo para atualizar os dados
     def update_product(self, product, description, link, photo, bought):
         self.product = product
         self.description = description
@@ -44,9 +49,12 @@ class ProductModel(banco.Model):
         self.photo = photo
         self.bought = bought
 
+    #Metodo para atualizar apenas a variavel "bought", 
+    # classe Bought_product
     def bought_product(self, bought):
         self.bought = bought
     
+    #Metodo para excluir produto no BD
     def delete_product(self):
         banco.session.delete(self)
         banco.session.commit()

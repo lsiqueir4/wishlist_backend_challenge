@@ -4,10 +4,13 @@ from flask_jwt_extended import create_access_token, jwt_required, get_jwt
 from werkzeug.security import safe_str_cmp
 from blacklist import BLACKLIST
 
+#Variavel global argumentos, pega o json passado em um PUT ou POST
 atributos = reqparse.RequestParser()
 atributos.add_argument('login', type=str,required=True, help="the field 'login' cannot be left blank")
 atributos.add_argument('senha', type=str,required=True, help="the field 'senha' cannot be left blank")
 
+#GET: Retorna um usuário pelo ID
+#DELETE: Exclui um usuário pelo ID
 class User(Resource):
     def get(self, user_id):
         user = UserModel.find_user(user_id)
@@ -26,6 +29,7 @@ class User(Resource):
             return {'message': 'user deleted.'}
         return {'message': 'user not found.'}, 404
 
+#POST: Cria um novo usuário
 class UserRegister(Resource):
     
     def post(self):
@@ -37,7 +41,8 @@ class UserRegister(Resource):
         user = UserModel(**dados)
         user.save_user()
         return {"message": "User created successfully!"},201
-    
+
+# Autentica o usuário e retorna um token de acesso
 class UserLogin(Resource):
 
     @classmethod
@@ -51,6 +56,7 @@ class UserLogin(Resource):
             return {'acess_token': token_de_acesso}, 200
         return {'message': 'The username or password is incorrect'}, 401 #unauthorized
 
+#Metodo para logout, adiciona o usuário em uma Blacklist
 class UserLogout(Resource):
     @jwt_required()
     def post(self):

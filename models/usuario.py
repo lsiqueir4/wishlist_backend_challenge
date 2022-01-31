@@ -1,6 +1,6 @@
 from sql_alchemy import banco
 
-
+#configuração da tabela usuarios no DB
 class UserModel(banco.Model):
     __tablename__ = 'usuarios'
 
@@ -12,12 +12,14 @@ class UserModel(banco.Model):
         self.login = login
         self.senha = senha
 
+    # Converter dados para json
     def json(self):
         return {
             'user_id': self.user_id,
             'login': self.login
         }
 
+    #Metodo para buscar pelo ID
     @classmethod
     def find_user(cls, user_id):
         user = cls.query.filter_by(user_id=user_id).first()
@@ -25,6 +27,7 @@ class UserModel(banco.Model):
             return user
         return None
 
+    #Metodo para buscar pelo login
     @classmethod
     def find_by_login(cls, login):
         user = cls.query.filter_by(login=login).first()
@@ -32,10 +35,12 @@ class UserModel(banco.Model):
             return user
         return None
 
+    #Metodo para salvar login no banco
     def save_user(self):
         banco.session.add(self)
         banco.session.commit()
     
+    #Metodo para excluir login
     def delete_user(self):
         banco.session.delete(self)
         banco.session.commit()

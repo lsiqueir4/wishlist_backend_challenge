@@ -45,7 +45,6 @@ api.add_resource(UserRegister, '/cadastro/')
 api.add_resource(UserLogin, '/login/')
 api.add_resource(UserLogout, '/logout/')
 
+banco.init_app(app)
 if __name__ == '__main__':
-    from sql_alchemy import banco
-    banco.init_app(app)
     app.run()

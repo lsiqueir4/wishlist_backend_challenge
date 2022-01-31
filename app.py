@@ -20,11 +20,6 @@ api = Api(app)
 
 jwt = JWTManager(app)
 
-
-@app.route('/')
-def index():
-    return '<h1>Bem-vindo a Api de Wishlist</h1>'
-
 #Garante que o banco seja criado 
 @app.before_first_request
 def cria_banco():

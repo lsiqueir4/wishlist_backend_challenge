@@ -54,5 +54,9 @@ Inserindo os mesmos dados do cadastro, a API retornará um token de acesso, esse
 
 Dessa forma você estará autenticado e autorizado a incluir novos produtos ou alterá-los. 
 
+Para deslogar, é necessário acessar o link abaixo, assim seu token se tornará invalido.
+
+https://restapi-wishlist.herokuapp.com/login/
+
 Obs.: Para possíveis dúvidas, recomendo acessar a documentação presente na raiz do projeto.
 

@@ -25,6 +25,7 @@ jwt = JWTManager(app)
 def cria_banco():
     banco.create_all()
 
+banco.init_app(app)
 #Leitura da Blacklist
 @jwt.token_in_blocklist_loader
 def verifica_blacklist(self, token):
@@ -44,8 +45,6 @@ api.add_resource(User, '/usuarios/<int:user_id>')
 api.add_resource(UserRegister, '/cadastro/')
 api.add_resource(UserLogin, '/login/')
 api.add_resource(UserLogout, '/logout/')
-
-banco.init_app(app)
 
 if __name__ == '__main__':
     app.run()

@@ -25,3 +25,34 @@ Para essa pequena API foram criados os seguintes endpoints:
 |/login/     | Autentica o usuário no sistema        | POST   | {'login': 'login', senha':'senha'}              |
 |/logout/     | Realiza o Logout do usuário         | POST    |               |
 
+## Como utilizar:
+
+Esta aplicação foi publicada no Heroku e pode ser acessada através do link:
+
+https://restapi-wishlist.herokuapp.com/
+
+Como a aplicação é focada nos endpoints da API, não foi criada uma página home, para inicar recomendo acessar a página de produtos:
+
+https://restapi-wishlist.herokuapp.com/produtos/
+
+A página de produtos retorna todos os produtos cadastrados na base de dados, para realizarmos adições ou alterações dos produtos, é necessário utilizar um token de autenticação, para isso vamos criar um novo usuário:
+
+https://restapi-wishlist.herokuapp.com/cadastro/
+
+Utilizando o método POST, podemos incluir um json com login e senha, como apresenta o exemplo abaixo:
+
+{
+"login": "leandro",
+"senha":"1234"
+}
+
+Se tudo ocorrer de acordo, a API retornará a mensagem de que o login foi criado. Agora precisamos logar:
+
+https://restapi-wishlist.herokuapp.com/login/
+
+Inserindo os mesmos dados do cadastro, a API retornará um token de acesso, esse token deve ser inserido no Header: Key: Authorization Value: Bearer "token"(sem as aspas)
+
+Dessa forma você estará autenticado e autorizado a incluir novos produtos ou alterá-los. 
+
+Obs.: Para possíveis dúvidas, recomendo acessar a documentação presente na raiz do projeto.
+
